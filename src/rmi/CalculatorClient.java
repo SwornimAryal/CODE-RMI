@@ -8,8 +8,12 @@ public class CalculatorClient {
         try {
             Registry registry = LocateRegistry.getRegistry("localhost", 2000);
             Calculator stub = (Calculator) registry.lookup("CalculatorService");
-            int result = stub.add(5, 3);
-            System.out.println("Result of 5 + 3: " + result);
+            int a = 10, b = 5;
+            System.out.println("Addition: " + stub.add(a, b));
+            System.out.println("Subtraction: " + stub.subtract(a, b));
+            System.out.println("Multiplication: " + stub.multiply(a, b));
+            System.out.println("Division: " + stub.divide(a, b));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
